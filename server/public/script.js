@@ -342,7 +342,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeVaultVideos() {
         // Dynamic Video Injection
         const vaultGrid = document.getElementById('vaultGrid');
-        if (vaultGrid && vaultGrid.children.length === 0) { // Only inject if empty
+        if (vaultGrid) {
+            vaultGrid.innerHTML = ''; // Clear existing content to force re-render
             const secretVideos = [
                 "Avinash.mp4",
                 "edits/1.mp4",
