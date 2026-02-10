@@ -11,10 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Basic Route
-app.get('/', (req, res) => {
-    res.send('Harshita Birthday API is running');
-});
+app.use(express.static('public'));
 
 // API Routes
 app.post('/api/verify-pin', (req, res) => {
