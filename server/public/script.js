@@ -296,6 +296,13 @@ document.addEventListener('DOMContentLoaded', () => {
     SECRET VAULT LOGIC (SECURE)
     ------------------------------------------
     */
+    const unlockBtn = document.getElementById('unlockBtn');
+    const secretPin = document.getElementById('secretPin');
+    const errorMsg = document.getElementById('errorMsg');
+    const lockContainer = document.getElementById('lockContainer');
+    const videoContainer = document.getElementById('videoContainer');
+    const secretVideoFrame = document.getElementById('secretVideoFrame');
+
     async function attemptUnlock() {
         if (!secretPin) return; // Guard clause
 
