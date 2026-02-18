@@ -1,19 +1,24 @@
-/* 
+/*
+------------------------------------------
+GLOBAL UTILS
+------------------------------------------
+*/
+const SITE_HASH = "f68f4b5483ab6804ad2da1fe5f25782f1a2c1d42151d2235039e92449be7ca98"; // SHA-256 of "loveubabu"
+
+async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
+/*
 ------------------------------------------
 SITE-WIDE PIN PROTECTION
 ------------------------------------------
 */
 (async function () {
-    const SITE_HASH = "f68f4b5483ab6804ad2da1fe5f25782f1a2c1d42151d2235039e92449be7ca98"; // SHA-256 of "loveubabu"
-
-    async function sha256(message) {
-        const msgBuffer = new TextEncoder().encode(message);
-        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-        const hashArray = Array.from(new Uint8Array(hashBuffer));
-        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        return hashHex;
-    }
-
     const checkPin = async () => {
         const input = document.getElementById('site-pin').value;
         const hash = await sha256(input);
@@ -36,7 +41,8 @@ SITE-WIDE PIN PROTECTION
     window.onload = () => {
         // Check if already unlocked in this session
         if (sessionStorage.getItem('site_unlocked') === 'true') {
-            document.getElementById('site-lock-overlay').style.display = 'none';
+            const overlay = document.getElementById('site-lock-overlay');
+            if (overlay) overlay.style.display = 'none';
         }
 
         const btn = document.getElementById('site-unlock-btn');
@@ -51,7 +57,7 @@ SITE-WIDE PIN PROTECTION
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* 
+    /*
     ------------------------------------------
     CONTENT PROTECTION (Disable Right-Click)
     ------------------------------------------
@@ -60,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('dragstart', event => event.preventDefault());
     document.addEventListener('selectstart', event => event.preventDefault());
 
-    /* 
+    /*
     ------------------------------------------
     DYNAMIC DATE LOGIC (Must run before Typewriter)
     ------------------------------------------
@@ -95,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     updateDynamicDate();
 
-    /* 
+    /*
     ------------------------------------------
     NEXT BIRTHDAY COUNTDOWN
     ------------------------------------------
@@ -128,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     initCountdown();
 
-    /* 
+    /*
     ------------------------------------------
     SCROLLING PHOTO MARQUEE INJECTOR
     ------------------------------------------
@@ -239,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* 
+    /*
     ------------------------------------------
     FADE IN ANIMATION (Existing)
     ------------------------------------------
@@ -263,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
-    /* 
+    /*
     ------------------------------------------
     SURPRISE BUTTON (Existing)
     ------------------------------------------
@@ -282,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* 
+    /*
     ------------------------------------------
     BACKGROUND MUSIC PLAYER
     ------------------------------------------
@@ -366,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /* 
+    /*
     ------------------------------------------
     FLOATING HEARTS GENERATOR
     ------------------------------------------
@@ -397,7 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(createFloatingHeart, 600);
 
 
-    /* 
+    /*
     ------------------------------------------
     SCROLL ANIMATIONS FOR IMAGES
     ------------------------------------------
@@ -419,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         animatedImages.forEach(img => img.classList.add('is-visible'));
     }, 2000);
 
-    /* 
+    /*
     ------------------------------------------
     SECRET VAULT LOGIC (SECURE)
     ------------------------------------------
@@ -435,9 +441,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!secretPin) return; // Guard clause
 
         const pin = secretPin.value;
-        const validPINs = ["2809", "2003", "1234"]; // Hardcoded valid PINs for static site
+        const hash = await sha256(pin); // Use the global sha256 function
 
-        if (validPINs.includes(pin)) {
+        if (hash === SITE_HASH) { // Check against the same "loveubabu" hash
             // Success
             if (lockContainer) lockContainer.style.display = 'none';
             if (videoContainer) videoContainer.style.display = 'none'; // Ensure old logic is handled if element exists
