@@ -1,4 +1,64 @@
+/* 
+------------------------------------------
+SITE-WIDE PIN PROTECTION
+------------------------------------------
+*/
+(async function () {
+    const SITE_HASH = "f68f4b5483ab6804ad2da1fe5f25782f1a2c1d42151d2235039e92449be7ca98"; // SHA-256 of "loveubabu"
+
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+    const checkPin = async () => {
+        const input = document.getElementById('site-pin').value;
+        const hash = await sha256(input);
+
+        if (hash === SITE_HASH) {
+            document.getElementById('site-lock-overlay').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('site-lock-overlay').style.display = 'none';
+            }, 500);
+            sessionStorage.setItem('site_unlocked', 'true');
+        } else {
+            const errorMsg = document.getElementById('site-error-msg');
+            errorMsg.style.display = 'block';
+            errorMsg.innerText = "Incorrect PIN!";
+            setTimeout(() => { errorMsg.style.display = 'none'; }, 2000);
+        }
+    };
+
+    // Wait for DOM to load only for the overlay elements
+    window.onload = () => {
+        // Check if already unlocked in this session
+        if (sessionStorage.getItem('site_unlocked') === 'true') {
+            document.getElementById('site-lock-overlay').style.display = 'none';
+        }
+
+        const btn = document.getElementById('site-unlock-btn');
+        const input = document.getElementById('site-pin');
+
+        if (btn) btn.addEventListener('click', checkPin);
+        if (input) input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') checkPin();
+        });
+    };
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* 
+    ------------------------------------------
+    CONTENT PROTECTION (Disable Right-Click)
+    ------------------------------------------
+    */
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('dragstart', event => event.preventDefault());
+    document.addEventListener('selectstart', event => event.preventDefault());
 
     /* 
     ------------------------------------------

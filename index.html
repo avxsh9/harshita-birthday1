@@ -20,6 +20,21 @@
 
 <body>
 
+    <!-- SITE LOCK OVERLAY -->
+    <div id="site-lock-overlay">
+        <div class="lock-content">
+            <h2 style="color: var(--accent-gold); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Enter
+                PIN to Unlock</h2>
+            <input type="password" id="site-pin" placeholder="Enter Magic Word"
+                style="padding: 10px 15px; border-radius: 5px; border: 1px solid #ddd; width: 220px; text-align: center; margin-bottom: 15px; background: rgba(255,255,255,0.9);">
+            <br>
+            <button id="site-unlock-btn"
+                style="padding: 10px 25px; background: var(--accent-gold); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Unlock</button>
+            <p id="site-error-msg" style="color: #ff6b6b; margin-top: 15px; display: none; font-size: 0.9rem;">Incorrect
+                PIN!</p>
+        </div>
+    </div>
+
     <!-- HERO SECTION -->
     <header>
         <div class="hero-overlay"></div>
@@ -30,7 +45,7 @@
 
             <div class="next-birthday-countdown fade-in-section" style="margin-top: 30px;">
                 <p
-                    style="font-size: 1.2rem; margin-bottom: 10px; color: var(--accent-gold); font-family: 'Playfair Display', serif; font-style: italic;">
+                    style="font-size: 1.2rem; margin-bottom: 10px; color: var(#000000); font-family: 'Playfair Display', serif; font-style: italic;">
                     Next Special Day ✨</p>
                 <div id="countdown" style="font-size: 1.5rem; font-weight: 500; letter-spacing: 2px;">
                     <!-- Time will be injected here -->
