@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Harshita</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <h1 class="hero-title">Happy Birthday Harshita</h1>
+            <p class="hero-subtitle">"Count your life by smiles, not tears. Count your age by friends, not years."</p>
+
+            <div class="next-birthday-countdown fade-in-section" style="margin-top: 30px;">
+                <p
+                    style="font-size: 1.2rem; margin-bottom: 10px; color: var(--accent-gold); font-family: 'Playfair Display', serif; font-style: italic;">
+                    Next Special Day ✨</p>
+                <div id="countdown" style="font-size: 1.5rem; font-weight: 500; letter-spacing: 2px;">
+                    <!-- Time will be injected here -->
+                    Loading...
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" onclick="document.getElementById('note').scrollIntoView({behavior: 'smooth'})">
+            <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- NOTE SECTION -->
+    <section id="note" class="fade-in-section">
+        <div class="container">
+            <div class="note-card glass-card">
+                <h2 class="section-title">A Note</h2>
+                <div class="gold-divider"></div>
+                <p id="typewriter-note" class="note-text"
+                    style="text-align: left; line-height: 1.6; margin-bottom: 20px; min-height: 300px;">
+                    <span id="dynamic-date">Today</span> is special, because <span id="dynamic-date-2">today</span> the
+                    girl was born who became the most important part of my life
+                    without even trying.
+                    You’re not just my best friend — you’re that comfort where my mind feels calm and my heart feels
+                    lighter.<br><br>
+
+                    There’s something magical in your smile and a strange kind of peace in your words.
+                    Whenever life feels a little too heavy, just your name is enough to make things feel okay.<br><br>
+
+                    We fight, we argue, we get upset sometimes — but honestly, I love even that part,
+                    because after every fight, you feel even more mine.
+                    You’ve become my habit, babu — without thinking, without planning.<br><br>
+
+                    I won’t promise that everything will always be perfect,
+                    but I can promise this:
+                    no matter what the situation is,
+                    your Suar will always stand by you — no conditions, no reasons.<br><br>
+
+                    Just stay the way you are — real, a little crazy, a little stubborn,
+                    and completely my Harshita 💫<br><br>
+
+                    Once again, Happy Birthday, babu 🎂<br>
+                    You exist, and that alone makes everything feel right.
+                </p>
+                <div class="note-signature" style="text-align: right; margin-top: 20px;">— Your Suar 🐷❤️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN SECTION -->
+
+    <!-- GALLERY SECTION -->
+    <section class="section-padding fade-in-section">
+        <div class="container">
+            <h2 class="section-title text-center">Captured Moments</h2>
+            <div class="gold-divider"></div>
+
+            <div class="gallery-grid">
+                <!-- Large Featured Image -->
+                <div class="gallery-item h-stretch v-stretch">
+                    <img src="IMG_5539 2 9.28.06 PM.jpg" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <!-- Regular Items -->
+                <div class="gallery-item">
+                    <img src="IMG_5199 3.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <!-- Vertical Stretch Image -->
+                <div class="gallery-item v-stretch">
+                    <img src="IMG_5203 3.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <!-- Video Item (Normal Size) -->
+                <div class="gallery-item">
+                    <video autoplay loop muted playsinline
+                        style="width:100%; height:100%; object-fit:cover; border-radius:inherit; pointer-events: none;">
+                        <source src="filtered-1BBB5397-FF3C-4222-8CB1-9ACF19D56429 9.28.07 PM.MP4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_5263 3.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <!-- Video Item (Normal Size) -->
+                <div class="gallery-item">
+                    <video autoplay loop muted playsinline
+                        style="width:100%; height:100%; object-fit:cover; border-radius:inherit; pointer-events: none;">
+                        <source src="AC09AE71-9ACE-42E8-9CF7-28546B867664 2.MP4" type="video/mp4">
+                    </video>
+                </div>
+                <!-- Horizontal Stretch Image -->
+                <div class="gallery-item h-stretch">
+                    <img src="IMG_5482 2 9.28.06 PM.jpg" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <!-- Video Item (Normal Size) -->
+                <div class="gallery-item">
+                    <video autoplay loop muted playsinline
+                        style="width:100%; height:100%; object-fit:cover; border-radius:inherit; pointer-events: none;">
+                        <source src="8DEF881C-F9CD-4366-9F6A-3DAF5C1D9E2D 3.MP4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_0649 9.28.07 PM.jpg" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="harshita.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_5186 3.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+                <div class="gallery-item">
+                    <img src="IMG_5490 2 9.28.07 PM.JPG" alt="Memory" loading="lazy" class="animate-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMORIES SECTION -->
+    <section class="section-padding memories-section">
+        <div class="container">
+            <h2 class="section-title text-center">Beautiful Memories</h2>
+            <div class="gold-divider"></div>
+
+            <div class="timeline">
+
+                <!-- Feb 2023 - 1 -->
+                <div class="memory-item">
+                    <div class="memory-date">Feb 2023</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/feb2023_1.jpg" alt="Feb 2023 Memory 1">
+                        <p class="memory-text">Where it all began... Our 11th class school trip ✨</p>
+                    </div>
+                </div>
+
+                <!-- Feb 2023 - 2 -->
+                <div class="memory-item">
+                    <div class="memory-date">Feb 2023</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/feb2023_2.jpg" alt="Feb 2023 Memory 2">
+                        <p class="memory-text">First birthday with us 🎂</p>
+                    </div>
+                </div>
+
+                <!-- June 2023 -->
+                <div class="memory-item">
+                    <div class="memory-date">June 2023</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/june2023.jpg" alt="June 2023 Memory">
+                        <p class="memory-text">The Annual Function day 💃🌟</p>
+                    </div>
+                </div>
+
+                <!-- Sept 2023 -->
+                <div class="memory-item">
+                    <div class="memory-date">Sept 2023</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/sept2023.jpg" alt="Sept 2023 Memory">
+                        <p class="memory-text">Celebrating Preeti Ma'am's birthday 🎂</p>
+                    </div>
+                </div>
+
+                <!-- Dec 2023 -->
+                <div class="memory-item">
+                    <div class="memory-date">Dec 2023</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/dec2023.jpg" alt="Dec 2023 Memory">
+                        <p class="memory-text">That sweet farewell of 11th class... unforgettable days ❤️</p>
+                    </div>
+                </div>
+
+                <!-- Sept 2024 -->
+                <div class="memory-item">
+                    <div class="memory-date">Sept 2024</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/sept2024.png" alt="Sept 2024 Memory">
+                        <p class="memory-text">Your 2nd day at college 🎓✨</p>
+                    </div>
+                </div>
+
+                <!-- March 2025 - 1 -->
+                <div class="memory-item">
+                    <div class="memory-date">March 2025</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/march2025_updated.jpg" alt="March 2025 Memory 1">
+                        <p class="memory-text">Shivam's wedding reception night 💍✨</p>
+                    </div>
+                </div>
+
+                <!-- March 2025 - 2 -->
+                <div class="memory-item">
+                    <div class="memory-date">March 2025</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/march2025.png" alt="March 2025 Memory 2">
+                        <p class="memory-text">Holi night Oreo shake run 🥤✨</p>
+                    </div>
+                </div>
+
+                <!-- July 2025 -->
+                <div class="memory-item">
+                    <div class="memory-date">July 2025</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/july2025.jpg" alt="July 2025 Memory">
+                        <p class="memory-text">Scooty learning sessions (more eating, less learning) 🛵🍕</p>
+                    </div>
+                </div>
+
+                <!-- Oct 2025 -->
+                <div class="memory-item">
+                    <div class="memory-date">Oct 2025</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/oct2025.jpg" alt="Oct 2025 Memory">
+                        <p class="memory-text">That evening at the Mela 🎡✨</p>
+                    </div>
+                </div>
+
+                <!-- Dec 2025 -->
+                <div class="memory-item">
+                    <div class="memory-date">Dec 2025</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/dec2025.png" alt="Dec 2025 Memory">
+                        <p class="memory-text">Random pizza outing 🍕✨</p>
+                    </div>
+                </div>
+
+                <!-- Jan 2026 -->
+                <div class="memory-item">
+                    <div class="memory-date">Jan 2026</div>
+                    <div class="memory-content glass-card">
+                        <img src="memories/jan2026.png" alt="Jan 2026 Memory">
+                        <p class="memory-text">Starting the New Year together 🎉❤️</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CINEMATIC EDITS SECTION -->
+
+
+    <!-- SECRET VAULT SECTION -->
+    <section class="section-padding fade-in-section" id="secretVault"
+        style="background: #f9f9f9; border-top: 1px solid #eaeaea;">
+        <div class="container text-center">
+            <h2 class="section-title" style="font-size: 1.8rem; margin-bottom: 20px;">🔒 Secret Vault</h2>
+            <p style="margin-bottom: 30px; color: #666;">Enter the magic PIN to unlock a special memory.</p>
+
+            <div id="lockContainer" style="max-width: 300px; margin: 0 auto;">
+                <input type="password" id="secretPin" placeholder="Enter PIN"
+                    style="width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 1.2rem; text-align: center; margin-bottom: 15px; outline: none; transition: border-color 0.3s;">
+                <button id="unlockBtn"
+                    style="width: 100%; padding: 15px; background: var(--accent-gold); color: white; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s;">
+                    Unlock
+                </button>
+                <p id="errorMsg" style="color: red; margin-top: 10px; display: none; font-size: 0.9rem;">Incorrect PIN.
+                    Try again.</p>
+            </div>
+
+            <div id="vaultContent" style="display: none; margin-top: 40px; animation: fadeIn 1s ease;">
+                <p style="margin-bottom: 30px; font-style: italic; color: #555;">"A treasure trove of memories..."</p>
+                <div id="vaultGrid" class="cinematic-grid">
+                    <!-- Content injected via script.js on unlock -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THINGS I LOVE ABOUT YOU -->
+    <section class="section-padding fade-in-section" style="background: #fafafa;">
+        <div class="container">
+            <h2 class="section-title text-center">The Essence of You</h2>
+            <div class="gold-divider"></div>
+
+            <div class="love-grid">
+
+                <div class="love-item glass-card">
+                    <div class="love-icon-bg">✨</div>
+                    <h3>Vibe</h3>
+                    <p class="love-text">Infectious energy that lights up the room.</p>
+                </div>
+
+                <div class="love-item glass-card">
+                    <div class="love-icon-bg">🧠</div>
+                    <h3>Mind</h3>
+                    <p class="love-text">Brilliant, sharp, and beautifully creative.</p>
+                </div>
+
+                <div class="love-item glass-card">
+                    <div class="love-icon-bg">🤍</div>
+                    <h3>Heart</h3>
+                    <p class="love-text">Kindness and compassion.</p>
+                </div>
+
+                <div class="love-item">
+                    <div class="love-icon-bg">👀</div>
+                    <h3>Eyes</h3>
+                    <p class="love-text">The way they sparkle when you smile.</p>
+                </div>
+
+                <div class="love-item">
+                    <div class="love-icon-bg">👗</div>
+                    <h3>Style</h3>
+                    <p class="love-text">Effortlessly chic and always on point.</p>
+                </div>
+
+                <div class="love-item">
+                    <div class="love-icon-bg">🌟</div>
+                    <h3>You</h3>
+                    <p class="love-text">Simply because you are you.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIDDEN SURPRISE -->
+    <section class="surprise-section fade-in-section">
+        <div class="container text-center">
+            <button id="surpriseBtn" class="surprise-btn">Click to view</button>
+
+            <div id="hiddenMessage" class="hidden-message">
+                <p class="hidden-text">"Wishing you a happy birthday."</p>
+                <div style="margin-top: 40px;">
+                    <img src="IMG_5508 2 9.28.06 PM.jpg"
+                        style="max-height: 400px; display:inline-block; border-radius:12px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>Made by your suar 🐷
+            </p>
+        </div>
+    </footer>
+
+    <!-- MUSIC CONSENT MODAL -->
+    <div id="musicModal" class="music-modal-overlay">
+        <div class="music-modal-content">
+            <p>Would you like to play background music?</p>
+            <div class="music-modal-buttons">
+                <button id="musicYes" class="music-btn yes">Yes 🎵</button>
+                <button id="musicNo" class="music-btn no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+
+</html>
