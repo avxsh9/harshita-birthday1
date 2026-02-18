@@ -470,6 +470,18 @@ header {
             transparent);
     transform: rotate(45deg);
     animation: shine 5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    /* KEY FIX: Prevent blocking clicks */
+    z-index: 0;
+}
+
+.lock-content h2,
+.lock-content p,
+.lock-content input,
+.lock-content button {
+    position: relative;
+    z-index: 2;
+    /* Ensure content is above shine */
 }
 
 .lock-content h2 {
@@ -508,6 +520,9 @@ header {
     border-radius: 8px 8px 0 0;
     font-family: var(--font-serif);
     letter-spacing: 4px;
+    pointer-events: auto;
+    user-select: text;
+    -webkit-user-select: text;
 }
 
 #site-pin:focus {
