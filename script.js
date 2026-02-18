@@ -13,6 +13,35 @@ async function sha256(message) {
     return hashHex;
 }
 
+// List of images for the blurred background (Mix of everything)
+const backgroundImages = [
+    "IMG_5508 2 9.28.06 PM.jpg", "IMG_5496 2.jpg", "harshita.JPG",
+    "IMG_0650.jpg", "IMG_5456 2 9.28.07 PM.jpg", "IMG_5527 2.jpg",
+    "IMG_5480 2.jpg", "IMG_5504 2 9.28.06 PM.jpg", "IMG_5178 3.JPG",
+    "IMG_5182 3.JPG", "IMG_5201 3.JPG", "IMG_5224 3.JPG",
+    "IMG_5266 3.JPG", "IMG_5539 2 9.28.06 PM.jpg", "IMG_5507 2 9.28.06 PM.jpg",
+    "IMG_5495 2 9.28.06 PM.jpg", "IMG_5489 2.JPG", "IMG_5476 2.JPG",
+    "IMG_4070 9.28.07 PM.JPG", "IMG_3424 9.28.07 PM.JPG"
+];
+
+function createBlurredBackground() {
+    const grid = document.getElementById('lockBackgroundGrid');
+    if (!grid) return;
+
+    // Shuffle and pick enough images to fill the grid (approx 50 for desktop)
+    const shuffled = [...backgroundImages].sort(() => 0.5 - Math.random());
+    // Duplicate to ensure we have enough
+    const finalImages = [...shuffled, ...shuffled, ...shuffled].slice(0, 40);
+
+    finalImages.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = "";
+        img.style.animationDelay = `${Math.random() * 5}s`;
+        grid.appendChild(img);
+    });
+}
+
 /*
 ------------------------------------------
 SITE-WIDE PIN PROTECTION
@@ -28,7 +57,7 @@ SITE-WIDE PIN PROTECTION
             setTimeout(() => {
                 document.getElementById('site-lock-overlay').style.display = 'none';
             }, 500);
-            sessionStorage.setItem('site_unlocked', 'true');
+            // Persistence removed: PIN required on every refresh
         } else {
             const errorMsg = document.getElementById('site-error-msg');
             errorMsg.style.display = 'block';
@@ -39,11 +68,8 @@ SITE-WIDE PIN PROTECTION
 
     // Wait for DOM to load only for the overlay elements
     window.onload = () => {
-        // Check if already unlocked in this session
-        if (sessionStorage.getItem('site_unlocked') === 'true') {
-            const overlay = document.getElementById('site-lock-overlay');
-            if (overlay) overlay.style.display = 'none';
-        }
+        createBlurredBackground();
+        // Persistence logic removed: Always show overlay on load
 
         const btn = document.getElementById('site-unlock-btn');
         const input = document.getElementById('site-pin');
@@ -64,7 +90,11 @@ document.addEventListener('DOMContentLoaded', () => {
     */
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('dragstart', event => event.preventDefault());
-    document.addEventListener('selectstart', event => event.preventDefault());
+    document.addEventListener('selectstart', event => {
+        if (!['INPUT', 'TEXTAREA'].includes(event.target.tagName)) {
+            event.preventDefault();
+        }
+    });
 
     /*
     ------------------------------------------

@@ -22,15 +22,15 @@
 
     <!-- SITE LOCK OVERLAY -->
     <div id="site-lock-overlay">
+        <div class="lock-background-grid" id="lockBackgroundGrid"></div>
         <div class="lock-content">
-            <h2 style="color: var(--accent-gold); margin-bottom: 20px; font-family: 'Playfair Display', serif;">Enter
-                PIN to Unlock</h2>
-            <input type="password" id="site-pin" placeholder="Enter Magic Word"
-                style="padding: 10px 15px; border-radius: 5px; border: 1px solid #ddd; width: 220px; text-align: center; margin-bottom: 15px; background: rgba(255,255,255,0.9);">
-            <br>
-            <button id="site-unlock-btn"
-                style="padding: 10px 25px; background: var(--accent-gold); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Unlock</button>
-            <p id="site-error-msg" style="color: #ff6b6b; margin-top: 15px; display: none; font-size: 0.9rem;">Incorrect
+            <h2 style="color: var(--accent-gold); margin-bottom: 5px; font-family: 'Playfair Display', serif;">Enter PIN
+                to Unlock</h2>
+            <p class="lock-subtitle">Restricted Access</p>
+            <input type="password" id="site-pin" placeholder="Magic Word">
+            <button id="site-unlock-btn">UNLOCK</button>
+            <p id="site-error-msg"
+                style="color: #ff6b6b; margin-top: 20px; font-size: 0.9rem; font-weight: 500; display: none;">Incorrect
                 PIN!</p>
         </div>
     </div>
